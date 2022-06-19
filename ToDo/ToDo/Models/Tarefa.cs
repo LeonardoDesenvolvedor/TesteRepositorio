@@ -13,6 +13,6 @@ namespace ToDo.Models
         public DateTime EndData { get; set; }
 
         public bool Status { get; set; }
-
+   
     }
 }

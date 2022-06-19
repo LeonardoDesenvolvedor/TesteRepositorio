@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ToDo.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+// Adicionando o AppInicializer
+AppDbInitializer.Seed(app);
+
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -36,6 +43,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Tarefas}/{action=Index}/{id?}");
 
 app.Run();
